@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class AWSConfig(AppConfig):
-    name = "aws"
+    name = "django_tasks_cloud.aws"

@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class AzureConfig(AppConfig):
-    name = "azure"
+    name = "django_tasks_cloud.azure"
