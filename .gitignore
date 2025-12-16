@@ -5,3 +5,5 @@ temp/
 
 .env
 .DS_*
+*.swp
+*.sqlite3
