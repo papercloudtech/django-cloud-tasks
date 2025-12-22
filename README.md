@@ -1,6 +1,6 @@
 # Django Task Backend for AWS and Azure
 
-[![Build and Push to PyPI (and Test PyPI for testing)](https://github.com/papercloudtech/django-tasks-cloud/actions/workflows/cd.yml/badge.svg)](https://github.com/papercloudtech/django-tasks-cloud/actions/workflows/cd.yml)
+[![Build and Push to PyPI (and Test PyPI for testing)](https://github.com/papercloudtech/django-tasks-cloud/actions/workflows/cd-pypi.yml/badge.svg)](https://github.com/papercloudtech/django-tasks-cloud/actions/workflows/cd-pypi.yml)
 
 > ❌ **IMPORTANT**
 > This project is in its early stages. While it is functional, it may not cover all edge cases or have comprehensive documentation. Use it at your own risk and feel free to contribute! We are working fast to make it production-ready.
