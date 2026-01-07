@@ -56,7 +56,7 @@ wheels = [
 
 [[package]]
 name = "azure-storage-queue"
-version = "12.14.1"
+version = "12.15.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "azure-core" },
@@ -64,9 +64,9 @@ dependencies = [
     { name = "isodate" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c4/9e/7ee54e687a37567fb09ad121ee101695feb79c88d57a872080818a8715b1/azure_storage_queue-12.14.1.tar.gz", hash = "sha256:8f7afb311ef1b9907316e59bb3e0645397c8d76073adb1b595f027b17c0b7af1", size = 192452, upload-time = "2025-10-29T12:59:24.528Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/48/23/e3b46de244a133675c8c20f3ef2be6cbaf22a41f03e04e1cb2acd609bf5f/azure_storage_queue-12.15.0.tar.gz", hash = "sha256:4e01dcae5aefd0c463f7bae5c75c8a91f955c893f14ed7590fc0cd447ac4666d", size = 197521, upload-time = "2026-01-07T00:18:03.616Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c5/2e/80d850a73c69afd0df69178a6c148e198d5e01f33f34422d621c98287af5/azure_storage_queue-12.14.1-py3-none-any.whl", hash = "sha256:fc10b25b70978b36c1a1dd1da55649d2f0fd41326b424b77f8f391220855dfd7", size = 184375, upload-time = "2025-10-29T12:59:26.213Z" },
+    { url = "https://files.pythonhosted.org/packages/d9/22/5da115105c9fe7e2fc11804018649b394f60a62735e19642acf336e3807a/azure_storage_queue-12.15.0-py3-none-any.whl", hash = "sha256:056cfce0cd60458f0b7653d804f639098b14593f843899c6c0fc65b3ebe61210", size = 187547, upload-time = "2026-01-07T00:18:05.23Z" },
 ]
 
 [[package]]
@@ -292,7 +292,7 @@ wheels = [
 
 [[package]]
 name = "django-tasks-cloud"
-version = "0.1.0b2"
+version = "0.2.0b1"
 source = { editable = "." }
 dependencies = [
     { name = "django" },
