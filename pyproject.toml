@@ -15,7 +15,7 @@ license = "MIT"
 license-files = ["LICEN[CS]E*"]
 
 dependencies = [
-    "django==6.0",
+    "django~=6.0",
 ]
 
 [dependency-groups]
