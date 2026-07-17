@@ -1,6 +1,6 @@
 [project]
 name = "django-tasks-cloud"
-version = "0.2.0b1"
+version = "0.2.1"
 authors = [
   { name="Developers at PaperCloud Tech", email="developers@papercloud.tech" },
 ]
@@ -15,10 +15,10 @@ license = "MIT"
 license-files = ["LICEN[CS]E*"]
 
 dependencies = [
-    "django==6.0",
+    "django>=6.0",
 ]
 
-[dependency-groups]
+[project.optional-dependencies]
 aws = [
     "boto3>=1.42.8",
 ]
@@ -27,6 +27,8 @@ azure = [
     "azure-servicebus>=7.14.3",
     "azure-storage-queue>=12.14.1",
 ]
+
+[dependency-groups]
 dev = [
     "python-dotenv>=1.2.1",
 ]

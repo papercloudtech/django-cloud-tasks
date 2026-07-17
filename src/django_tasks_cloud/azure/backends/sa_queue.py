@@ -26,7 +26,7 @@ class StorageAccountQueueBackend(BaseTaskBackend):
         )
         if not self.default_destination_name:
             raise ImproperlyConfigured(
-                f"Unset: STORAGE_ACCOUNT_QUEUE_DEFAULT_QUEUE_NAME"
+                "Unset: STORAGE_ACCOUNT_QUEUE_DEFAULT_QUEUE_NAME"
             )
 
         self.use_connection_string = self.options.get(
@@ -44,7 +44,7 @@ class StorageAccountQueueBackend(BaseTaskBackend):
             self.queue_service_client = QueueServiceClient.from_connection_string(
                 self.connection_string
             )
-        else:
+        else:  # Default Credential Chain
             self.storage_account_url = self.options.get("STORAGE_ACCOUNT_URL")
             if not self.storage_account_url:
                 raise ImproperlyConfigured("Unset: STORAGE_ACCOUNT_URL")
@@ -77,14 +77,14 @@ class StorageAccountQueueBackend(BaseTaskBackend):
         queue_client = self._get_queue_client(destination_name)
 
         payload = {
-            "task": task.name,
+            "task": task.module_path,
             "args": args,
             "kwargs": kwargs,
         }
         message_content = dumps(payload)
         task_result = TaskResult(
             task=task,
-            id=None,
+            id=None,  # ty:ignore[invalid-argument-type] (set later)
             status=TaskResultStatus.READY,
             enqueued_at=None,
             started_at=None,

@@ -1,5 +1,12 @@
+import secrets
+
+from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.tasks import TaskResultStatus
+from django.utils import timezone
+
+DEFAULT_TOKEN_TTL_DAYS = settings.DEFAULT_TOKEN_TTL_DAYS
 
 
 class TaskResult(models.Model):
@@ -19,31 +26,6 @@ class TaskResult(models.Model):
     args = models.JSONField(blank=True, null=True, default=list)
     kwargs = models.JSONField(blank=True, null=True, default=dict)
 
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    _FROZEN_ONCE_SET = ("id", "enqueued_at", "args", "kwargs")
-
-    def save(self, *args, **kwargs):
-        if self._state.adding:
-            super().save(*args, **kwargs)
-            return
-
-        orig = TaskResult.objects.filter(pk=self.pk).first()
-        if not orig:
-            super().save(*args, **kwargs)
-            return
-
-        if orig.id and self.id != orig.id:
-            raise ValueError("Frozen: id")
-
-        if orig.enqueued_at is not None and self.enqueued_at != orig.enqueued_at:
-            raise ValueError("Frozen: enqueued_at")
-
-        if orig.args not in (None, [], {}) and self.args != orig.args:
-            raise ValueError("Frozen: args")
-
-        if orig.kwargs not in (None, {}, []) and self.kwargs != orig.kwargs:
-            raise ValueError("Frozen: kwargs")
-
-        super().save(*args, **kwargs)
+    class Meta:
+        verbose_name = "Task Result"
+        verbose_name_plural = "Task Results"

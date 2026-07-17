@@ -74,7 +74,7 @@ class _ServiceBusBaseBackend(BaseTaskBackend):
             destination_name
         )  # Implemented in: Subclasses
         payload = {
-            "task": task.name,
+            "task": task.module_path,
             "args": args,
             "kwargs": kwargs,
         }

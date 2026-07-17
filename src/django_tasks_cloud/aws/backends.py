@@ -26,7 +26,7 @@ class AWSBaseBackend(BaseTaskBackend):
         self.validate_task(task)
 
         payload = {
-            "task": task.name,
+            "task": task.module_path,
             "args": args,
             "kwargs": kwargs,
         }

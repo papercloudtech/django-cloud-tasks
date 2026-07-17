@@ -292,13 +292,13 @@ wheels = [
 
 [[package]]
 name = "django-tasks-cloud"
-version = "0.1.0b2"
+version = "0.2.1"
 source = { editable = "." }
 dependencies = [
     { name = "django" },
 ]
 
-[package.dev-dependencies]
+[package.optional-dependencies]
 aws = [
     { name = "boto3" },
 ]
@@ -307,20 +307,23 @@ azure = [
     { name = "azure-servicebus" },
     { name = "azure-storage-queue" },
 ]
+
+[package.dev-dependencies]
 dev = [
     { name = "python-dotenv" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "django", specifier = "==6.0" }]
+requires-dist = [
+    { name = "azure-identity", marker = "extra == 'azure'", specifier = ">=1.25.1" },
+    { name = "azure-servicebus", marker = "extra == 'azure'", specifier = ">=7.14.3" },
+    { name = "azure-storage-queue", marker = "extra == 'azure'", specifier = ">=12.14.1" },
+    { name = "boto3", marker = "extra == 'aws'", specifier = ">=1.42.8" },
+    { name = "django", specifier = ">=6.0" },
+]
+provides-extras = ["aws", "azure"]
 
 [package.metadata.requires-dev]
-aws = [{ name = "boto3", specifier = ">=1.42.8" }]
-azure = [
-    { name = "azure-identity", specifier = ">=1.25.1" },
-    { name = "azure-servicebus", specifier = ">=7.14.3" },
-    { name = "azure-storage-queue", specifier = ">=12.14.1" },
-]
 dev = [{ name = "python-dotenv", specifier = ">=1.2.1" }]
 
 [[package]]
